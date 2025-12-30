@@ -36,11 +36,13 @@ def main() -> None:
     logger.info(
         f"Found {len(unqique_tracks)} unique tracks out of {len(slp.tracks)} total tracks."
     )
+    logger.info("Unique tracks:")
     for t in unqique_tracks.values():
-        logger.info(f" - {t.name}")
+        logger.info(f"  '{t.name}'")
 
     if len(unqique_tracks) == len(slp.tracks):
-        logger.success("No duplicates found. SLP is okay. Done")
+        logger.info("No duplicates found. SLP is okay.")
+        logger.info("Done")
         return
 
     confirm = Prompt.ask(
@@ -61,6 +63,7 @@ def main() -> None:
     slp.tracks = list(unqique_tracks.values())
 
     out_slp = slp_file.with_stem(slp_file.stem + "_fixed")
+
     logger.info(f"Saving fixed SLP to: {out_slp}")
     sio.save_slp(slp, out_slp)
 
