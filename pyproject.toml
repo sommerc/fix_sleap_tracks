@@ -1,0 +1,22 @@
+[project]
+name = "fix-sleap-tracks"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Christoph Sommer", email = "christoph.sommer@ist.ac.at" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "loguru>=0.7.3",
+    "numpy>=2.4.0",
+    "rich>=14.2.0",
+    "sleap-io>=0.5.8",
+]
+
+[project.scripts]
+fix-sleap-tracks = "fix_sleap_tracks:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
